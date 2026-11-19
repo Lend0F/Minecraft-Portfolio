@@ -493,16 +493,25 @@ function animateCounters() {
 }
 
 /* ---------- Reveal on scroll ---------- */
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+// Elementos muito altos (como o grid do portfólio no celular) podem nunca
+// atingir 12% de área visível. Por isso o limite é baixo e o painel do
+// portfólio não usa .reveal — os cards sempre aparecem.
+const revealElements = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+if (!("IntersectionObserver" in window)) {
+  revealElements.forEach(el => el.classList.add("visible"));
+} else {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.01 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+}
 
 /* Links com placeholder (troque pelo seu contato real) */
 document.querySelectorAll("[data-placeholder]").forEach(el => {
