@@ -52,6 +52,8 @@ Não há formulário: o contato é feito diretamente por e-mail ou Discord, como
 
 O nome "Lend" aparece no título, logo, assinatura e rodapé. Busque por `LEND` / `Lend` nos arquivos para ajustar. As cores ficam no topo de `style.css` nas variáveis `--accent`, `--accent-dark` e `--yellow`.
 
+Os commits deste repositório são publicados com a identidade **LendBot**.
+
 ### 4. Números do hero
 
 Os contadores (`22`, `22`, `17`) estão em `index.html` nos atributos `data-count`. Atualize para os números reais.
