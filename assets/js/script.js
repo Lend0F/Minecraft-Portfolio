@@ -500,6 +500,24 @@ document.querySelectorAll("[data-placeholder]").forEach(el => {
   });
 });
 
+/* Navegação interna: rolagem instantânea, sem alterar a URL */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  if (link.hasAttribute("data-placeholder") || link.getAttribute("href") === "#") return;
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const id = link.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    if (id === "topo" || !target) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    const header = document.querySelector(".site-header");
+    const offset = header ? header.offsetHeight : 0;
+    const top = Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - offset);
+    window.scrollTo(0, top);
+  });
+});
+
 /* ---------- Init ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
 updateCounts();
