@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lend — Texturas &amp; Modelos 3D para Minecraft</title>
+  <meta name="description" content="Portfólio de Lend: criação de texturas e modelos 3D para Minecraft. Moderno, medieval, ícones, natureza e muito mais.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a href="#topo" class="brand" aria-label="Lend - início">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="brand-name">LEND</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#inicio" class="nav-link">Início</a>
+        <a href="#portfolio" class="nav-link">Portfólio</a>
+        <a href="#processo" class="nav-link">Processo</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <a href="#contato" class="btn btn-sm btn-primary header-cta">Vamos conversar</a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="inicio">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="eyebrow-square"></span> Portfólio 2026 · Lend</span>
+          <h1>Do pixel ao <span class="text-accent">servidor.</span></h1>
+          <p class="hero-lead">
+            Texturas e <strong>modelos 3D</strong> para Minecraft com foco técnico: resolução consistente,
+            compatibilidade Java/Bedrock e ativos prontos para resource packs — do uso pessoal a servidores
+            completos, incluindo <strong>ícones de UI</strong>, GUIs e itens.
+          </p>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn btn-primary">Explorar trabalhos <span aria-hidden="true">↓</span></a>
+            <a href="#contato" class="btn btn-ghost">Falar comigo</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong data-count="22">0</strong><span>Texturas criadas</span></div>
+            <div class="stat"><strong data-count="22">0</strong><span>Modelos 3D</span></div>
+            <div class="stat"><strong data-count="17">0</strong><span>Projetos entregues</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Ilustração pixel art de blocos e elementos de Minecraft">
+          <div class="hero-frame">
+            <img src="assets/img/hero-art.svg" alt="Cena pixel art com blocos, espada e baú do Minecraft">
+            <span class="pixel-badge badge-a">16x / 32x</span>
+            <span class="pixel-badge badge-b">Blockbench</span>
+            <span class="pixel-badge badge-c">100% custom</span>
+          </div>
+          <div class="hero-frame-shadow" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="container scroll-hint" aria-hidden="true"><span></span> role para baixo</div>
+    </section>
+
+    <!-- ===== Portfólio com abas ===== -->
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">01 / PORTFÓLIO</span>
+          <h2>Trabalhos selecionados</h2>
+          <p>Cada projeto é feito sob medida. Escolha uma aba, filtre por categoria e veja o que já foi criado.</p>
+        </div>
+
+        <!-- Abas principais -->
+        <div class="tabs reveal" role="tablist" aria-label="Tipos de trabalho">
+          <button class="tab active" id="tab-texturas" role="tab" aria-selected="true" aria-controls="painel-portfolio" data-tab="texturas">
+            <span class="tab-icon" aria-hidden="true">▦</span>
+            <span class="tab-label">Texturas</span>
+            <span class="tab-count" id="count-texturas">0</span>
+          </button>
+          <button class="tab" id="tab-modelos" role="tab" aria-selected="false" aria-controls="painel-portfolio" data-tab="modelos">
+            <span class="tab-icon" aria-hidden="true">◈</span>
+            <span class="tab-label">Modelos 3D</span>
+            <span class="tab-count" id="count-modelos">0</span>
+          </button>
+        </div>
+
+        <div class="portfolio-panel reveal" id="painel-portfolio" role="tabpanel" aria-labelledby="tab-texturas">
+          <!-- Filtros de categoria (gerados via JS) -->
+          <div class="filters" id="filters" aria-label="Filtrar por categoria"></div>
+
+          <!-- Grid de cards (gerado via JS) -->
+          <div class="cards-grid" id="cards-grid"></div>
+
+          <p class="empty-state" id="empty-state" hidden>Nenhum trabalho nesta categoria ainda. Volte em breve!</p>
+        </div>
+
+        <p class="portfolio-note reveal">
+          <span aria-hidden="true">✦</span> As imagens são ilustrações de exemplo — troque pelos seus prints e renders em <code>assets/img/</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Processo ===== -->
+    <section class="section process" id="processo">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">02 / COMO TRABALHO</span>
+          <h2>Da ideia ao bloco</h2>
+          <p>Um processo simples, transparente e feito para você acompanhar cada etapa.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <span class="step-number">01</span>
+            <div class="step-icon" aria-hidden="true">✎</div>
+            <h3>Briefing</h3>
+            <p>Você me conta a ideia, o estilo, a resolução e onde vai usar. Eu alinho referências e expectativas.</p>
+          </article>
+          <article class="step-card reveal">
+            <span class="step-number">02</span>
+            <div class="step-icon" aria-hidden="true">◫</div>
+            <h3>Criação</h3>
+            <p>Textura pixel a pixel ou modelo no Blockbench, com revisões para ajustar cor, forma e detalhes.</p>
+          </article>
+          <article class="step-card reveal">
+            <span class="step-number">03</span>
+            <div class="step-icon" aria-hidden="true">✓</div>
+            <h3>Entrega</h3>
+            <p>Arquivos organizados, prontos para importar no game, com documentação e suporte pós-entrega.</p>
+          </article>
+        </div>
+
+        <div class="extras reveal">
+          <div class="extra-item"><span aria-hidden="true">◼</span> Resoluções 16x, 32x, 64x ou sob medida</div>
+          <div class="extra-item"><span aria-hidden="true">◼</span> Compatível com Java &amp; Bedrock</div>
+          <div class="extra-item"><span aria-hidden="true">◼</span> Revisões incluídas</div>
+          <div class="extra-item"><span aria-hidden="true">◼</span> Entrega em PNG, .json e .bbmodel</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contato ===== -->
+    <section class="section contact" id="contato">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div class="contact-copy">
+            <span class="section-index">03 / CONTATO</span>
+            <h2>Vamos criar algo <span class="text-accent">incrível?</span></h2>
+            <p>Contato direto, sem formulário. Me chama no e-mail ou no Discord com os detalhes do projeto — respondo em até 24h.</p>
+
+            <div class="contact-list">
+              <a class="contact-item" href="mailto:contato@lend.com">
+                <span class="contact-icon" aria-hidden="true">✉</span>
+                <span><small>E-mail</small><strong>contato@lend.com</strong></span>
+              </a>
+              <a class="contact-item" href="#" data-placeholder="Discord">
+                <span class="contact-icon" aria-hidden="true">◉</span>
+                <span><small>Discord</small><strong>lend#0001</strong></span>
+              </a>
+              <div class="contact-item">
+                <span class="contact-icon" aria-hidden="true">◷</span>
+                <span><small>Resposta</small><strong>em até 24h</strong></span>
+              </div>
+            </div>
+
+            <div class="signature">
+              <span class="signature-name">Lend</span>
+              <span class="signature-role">criação pixelada com carinho · desde 2021</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">LEND</span>
+        <p>Texturas &amp; modelos 3D para Minecraft.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#processo">Processo</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Lend · Feito com pixels e café.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Modal de detalhes ===== -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" data-close aria-label="Fechar">×</button>
+      <div class="modal-image-wrap"><img id="modal-image" src="" alt=""></div>
+      <div class="modal-body">
+        <span class="modal-category" id="modal-category"></span>
+        <h3 id="modal-title"></h3>
+        <p id="modal-description"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <a href="#contato" class="btn btn-primary" data-close>Quero algo assim <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
