@@ -353,6 +353,19 @@ const portfolioData = {
 let activeTab = "texturas";
 let activeCategory = "todos";
 
+/* Remove qualquer hash antigo da URL (ex.: #topo) sem recarregar a página */
+function clearUrlHash() {
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+}
+clearUrlHash();
+window.addEventListener("DOMContentLoaded", clearUrlHash);
+window.addEventListener("load", clearUrlHash);
+window.addEventListener("hashchange", clearUrlHash);
+setTimeout(clearUrlHash, 0);
+setTimeout(clearUrlHash, 300);
+
 /* ---------- Elementos ---------- */
 const grid = document.getElementById("cards-grid");
 const filtersEl = document.getElementById("filters");
@@ -505,6 +518,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   if (link.hasAttribute("data-placeholder") || link.getAttribute("href") === "#") return;
   link.addEventListener("click", e => {
     e.preventDefault();
+    clearUrlHash();
     const id = link.getAttribute("href").slice(1);
     const target = document.getElementById(id);
     if (id === "topo" || !target) {
