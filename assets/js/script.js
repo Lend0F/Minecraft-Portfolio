@@ -492,27 +492,6 @@ function animateCounters() {
   });
 }
 
-/* ---------- Reveal on scroll ---------- */
-// Elementos muito altos (como o grid do portfólio no celular) podem nunca
-// atingir 12% de área visível. Por isso o limite é baixo e o painel do
-// portfólio não usa .reveal — os cards sempre aparecem.
-const revealElements = document.querySelectorAll(".reveal");
-
-if (!("IntersectionObserver" in window)) {
-  revealElements.forEach(el => el.classList.add("visible"));
-} else {
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.01 });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-}
-
 /* Links com placeholder (troque pelo seu contato real) */
 document.querySelectorAll("[data-placeholder]").forEach(el => {
   el.addEventListener("click", e => {
@@ -526,13 +505,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 updateCounts();
 renderFilters();
 renderCards();
-
-let countersDone = false;
-const statsObserver = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting && !countersDone) {
-    countersDone = true;
-    animateCounters();
-    statsObserver.disconnect();
-  }
-}, { threshold: 0.5 });
-statsObserver.observe(document.querySelector(".hero-stats"));
+animateCounters();
