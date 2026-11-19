@@ -386,8 +386,8 @@ function renderCards() {
 
   emptyState.hidden = items.length > 0;
 
-  grid.innerHTML = items.map((item, index) => `
-    <article class="card" style="animation-delay:${index * 45}ms">
+  grid.innerHTML = items.map(item => `
+    <article class="card">
       <div class="card-image">
         <img src="${item.image}" alt="Ilustração de ${item.title}" loading="lazy">
         <span class="card-category">${item.categoryLabel}</span>
